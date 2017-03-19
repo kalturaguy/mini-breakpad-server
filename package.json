@@ -1,0 +1,42 @@
+{
+  "name": "mini-breakpad-server",
+  "description": "Minimum breakpad crash reports collecting server",
+  "version": "0.2.0",
+  "bin": {
+    "mini-breakpad-server": "bin/mini-breakpad-server"
+  },
+  "scripts": {
+    "prepublish": "grunt coffee"
+  },
+  "dependencies": {
+    "decompress-zip": "0.0.4",
+    "dirty": "0.9.7",
+    "express": "4.15.0",
+    "formidable": "~1.0.14",
+    "fs-plus": "0.10.0",
+    "github-releases": "0.1.x",
+    "glob": "3.x",
+    "jade": "~0.35.0",
+    "minidump": "0.11.0",
+    "mkdirp": "~0.3.5",
+    "node-uuid": "~1.4.1",
+    "temp": "0.7.0",
+    "wrench": "1.5.x",
+    "compression": "1.6.2",
+    "forever": "0.15.3"
+
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/atom/mini-breakpad-server/raw/master/LICENSE"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atom/mini-breakpad-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atom/mini-breakpad-server/issues"
+  }
+}

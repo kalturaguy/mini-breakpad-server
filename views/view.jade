@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  pre
+    for v, k in record.fields
+      = k + ": " + v + "\n"
+
+  a(href='../download/' + record.id) Download dump
+
+  pre= report

@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+  table(class="table table-hover")
+    thead
+      tr
+        td ID
+        td Time
+        td Version
+        td IP Address
+        td Process run time
+        td resourceId
+        td partnerId
+        td actions
+    tbody
+      each record in records
+        tr
+          td
+            a(href='view/' + record.id) #{record.id}
+          td=record.time.toLocaleString()
+          td=record.fields._version
+          td=record.sender.ip
+          td=record.fields.ptime
+          td=record.fields.resourceId
+          td=record.fields.partnerId
+          td
+            button(class='btn btn-primary btn-sm' onclick="if (confirm('delete #{record.id}?')) window.open('delete/#{record.id}', '_blank');") Delete
