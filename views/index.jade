@@ -20,7 +20,7 @@ block content
             a(href='view/' + record.id) #{record.id}
           td=record.time.toLocaleString()
           td=record.fields._version
-          td=record.sender.ip
+          td=record.sender.ip.replace(/^::ffff:/,"")
           td=record.fields.ptime
           td=record.fields.resourceId
           td=record.fields.partnerId
