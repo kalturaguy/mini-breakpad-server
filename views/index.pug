@@ -1,8 +1,8 @@
 extends layout
-
 block content
   - function pad(n, z) {z = z || 2;  return ('00' + n).slice(-z);   }
   - function msToTime(s) {  var secs = s % 60;  s = (s - secs) / 60;   var mins = s % 60;   var hrs = (s - mins) / 60;     return pad(hrs) + ':' + pad(mins) + ':' + pad(secs);    }  h1= title
+  h1=title
   table(class="table table-hover")
     thead
       tr
@@ -11,7 +11,8 @@ block content
         td Time
         td Version
         td IP Address
-        td Process run time
+        if showRunTime
+            td Process run time
         td resourceId
         td partnerId
         td actions
@@ -24,7 +25,8 @@ block content
           td=record.time.toLocaleString()
           td=record.fields._version
           td=record.sender.ip.replace(/^::ffff:/,"")
-          td #{msToTime(record.fields.ptime)}
+          if showRunTime
+            td #{msToTime(record.fields.ptime)}
           td=record.fields.resourceId
           td=record.fields.partnerId
           td
