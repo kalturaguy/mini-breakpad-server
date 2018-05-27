@@ -5,9 +5,6 @@
   "bin": {
     "mini-breakpad-server": "bin/mini-breakpad-server"
   },
-  "scripts": {
-    "prepublish": "grunt coffee"
-  },
   "dependencies": {
     "decompress-zip": "0.0.4",
     "dirty": "0.9.7",
@@ -16,7 +13,7 @@
     "fs-plus": "0.10.0",
     "github-releases": "0.1.x",
     "glob": "3.x",
-    "jade": "~0.35.0",
+    "pug": "2.0.3",
     "minidump": "0.11.0",
     "mkdirp": "~0.3.5",
     "node-uuid": "~1.4.1",

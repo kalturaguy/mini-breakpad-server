@@ -1,11 +1,13 @@
 extends layout
 
 block content
-  h1= title
+  - function pad(n, z) {z = z || 2;  return ('00' + n).slice(-z);   }
+  - function msToTime(s) {  var secs = s % 60;  s = (s - secs) / 60;   var mins = s % 60;   var hrs = (s - mins) / 60;     return pad(hrs) + ':' + pad(mins) + ':' + pad(secs);    }  h1= title
   table(class="table table-hover")
     thead
       tr
         td ID
+        td ProductName
         td Time
         td Version
         td IP Address
@@ -18,11 +20,12 @@ block content
         tr
           td
             a(href='view/' + record.id) #{record.id}
+          td=record.fields._productName
           td=record.time.toLocaleString()
           td=record.fields._version
           td=record.sender.ip.replace(/^::ffff:/,"")
-          td=record.fields.ptime
+          td #{msToTime(record.fields.ptime)}
           td=record.fields.resourceId
           td=record.fields.partnerId
           td
-            button(class='btn btn-primary btn-sm' onclick="if (confirm('delete #{record.id}?')) window.open('delete/#{record.id}', '_blank');") Delete
+            button(class='btn btn-primary btn-sm' onclick="if (confirm('delete "+record.id+"?')) window.open('delete/"+record.id+"', '_blank');") Delete

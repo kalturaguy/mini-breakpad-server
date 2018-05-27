@@ -1,0 +1,11 @@
+<form action="/post_logs" enctype="multipart/form-data" method="post">
+    product: <input type="text" name="_productName" value="personal capture"><br>
+    ver: <input type="text" name="ver" value="1.2.3"><br>
+    resourceId: <input type="text" name="resourceId" value="123"><br>
+    partnerId: <input type="text" name="partnerId" value="666666"><br>
+
+    <input hidden type="text" name="type" value="log"><br>
+    file name: <input name="upload_file_minidump"  multiple="multiple" type="file">
+    <br>
+    <input type="submit" value="Submit">
+</form>
