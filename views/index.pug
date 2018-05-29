@@ -8,13 +8,14 @@ block content
       tr
         td ID
         td ProductName
+        td OS
         td Time
         td Version
         td IP Address
         if showRunTime
             td Process run time
-        td resourceId
-        td partnerId
+        td partnerId/userId
+        td resourceId/computerName
         td actions
     tbody
       each record in records
@@ -22,12 +23,16 @@ block content
           td
             a(href='view/' + record.id) #{record.id}
           td=record.fields._productName
+          td=record.fields.platform
           td=record.time.toLocaleString()
           td=record.fields._version
           td=record.sender.ip.replace(/^::ffff:/,"")
           if showRunTime
             td #{msToTime(record.fields.ptime)}
+          if record.fields.partnerId
+            td=record.fields.partnerId
+          else
+            td=record.fields.userId
           td=record.fields.resourceId
-          td=record.fields.partnerId
           td
             button(class='btn btn-primary btn-sm' onclick="if (confirm('delete "+record.id+"?')) window.open('delete/"+record.id+"', '_blank');") Delete
